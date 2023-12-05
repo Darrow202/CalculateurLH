@@ -10,17 +10,17 @@ namespace CalculateurLH.Model
     /// <summary>
     /// Classe qui gère les différentes unités
     /// </summary>
-    public interface IUnite
+    public interface IBataillon
     {
         /// <summary>
-        /// Renvoie ou modifie le nom de l'unité
+        /// Renvoie ou modifie le type de l'unité
         /// </summary>
-        public string Nom {  get; set; }
+        public string Type { get; set; }
 
         /// <summary>
         /// Renvoie ou modifie le type de l'unité
         /// </summary>
-        public string[] Type { get; set; }
+        public string[] TypeCompagnies { get; set; }
 
         /// <summary>
         /// Renvoie ou modifie le nombre de figurines par compagnies
@@ -75,6 +75,6 @@ namespace CalculateurLH.Model
 
     public interface ICreateUnite
     {
-        public IUnite CreateUnite();
+        public IBataillon CreateUnite();
     }
 }
