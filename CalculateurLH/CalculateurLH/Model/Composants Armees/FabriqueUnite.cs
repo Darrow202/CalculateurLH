@@ -12,7 +12,9 @@ namespace CalculateurLH.Model.Composants_Armees
     public class FabriqueUnite
     {
         private Dictionary<string, ICreateUnite> constructeurs;
+#pragma warning disable CS8618 // Un champ non-nullable doit contenir une valeur non-null lors de la fermeture du constructeur. Envisagez de déclarer le champ comme nullable.
         private static FabriqueUnite instance;
+#pragma warning restore CS8618 // Un champ non-nullable doit contenir une valeur non-null lors de la fermeture du constructeur. Envisagez de déclarer le champ comme nullable.
 
         /// <summary>
         /// Renvoie l'instance de la fabrique et la crée si elle n'existe pas

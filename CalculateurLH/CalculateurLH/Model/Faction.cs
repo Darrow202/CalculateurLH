@@ -8,6 +8,11 @@ namespace CalculateurLH.Model
 {
     public class Faction
     {
-        public string Name { get; set; }
+        public string nom { get; set; }
+
+        public Faction(string nom) 
+        {
+            this.nom = nom; 
+        }
     }
 }
