@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculateurLH", "CalculateurLH\CalculateurLH.csproj", "{06FE1645-B1F9-4619-A2DE-E6277E5634BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IHMCalculateur", "IHMCalculateur\IHMCalculateur.csproj", "{4527D505-A2AE-4B29-AEF1-00A4D94082EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06FE1645-B1F9-4619-A2DE-E6277E5634BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06FE1645-B1F9-4619-A2DE-E6277E5634BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06FE1645-B1F9-4619-A2DE-E6277E5634BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06FE1645-B1F9-4619-A2DE-E6277E5634BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4527D505-A2AE-4B29-AEF1-00A4D94082EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4527D505-A2AE-4B29-AEF1-00A4D94082EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4527D505-A2AE-4B29-AEF1-00A4D94082EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4527D505-A2AE-4B29-AEF1-00A4D94082EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD634405-8E9E-4F5C-A87E-5AC859142605}
+	EndGlobalSection
+EndGlobal
