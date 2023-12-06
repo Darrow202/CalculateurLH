@@ -24,7 +24,7 @@ namespace CalculateurLH.Model
         /// <summary>
         /// Renvoie ou modifie la liste des régiments contenus dans la division
         /// </summary>
-        public List<IUnite> Regiments { get; set; }
+        public List<IBataillon> Regiments { get; set; }
 
         /// <summary>
         /// Renvoie ou modifie le cout de la division

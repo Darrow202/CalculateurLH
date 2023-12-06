@@ -53,7 +53,7 @@ namespace CalculateurLH.Model.Composants_Armees
         /// </summary>
         /// <param name="nom">Nom de l'unité que l'on veut créer</param>
         /// <returns>L'unité créée</returns>
-        public IUnite Create(string nom)
+        public IBataillon Create(string nom)
         {
             return Instance.constructeurs[nom].CreateUnite();
         }
