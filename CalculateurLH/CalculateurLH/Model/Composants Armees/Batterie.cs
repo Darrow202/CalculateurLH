@@ -7,27 +7,27 @@ using System.Threading.Tasks;
 namespace CalculateurLH.Model.Composants_Armees
 {
     /// <summary>
-    /// Classe qui gère les divisions
+    /// Classe qui gère les batteries d'artillerie
     /// </summary>
-    public class Division
+    public class Batterie
     {
         private string nom;
-        private List<Brigade> brigades;
-        private List<Regiment> regiments;
+        private List<ICanon> canons;
+        private List<ICanon> trains;
 
         /// <summary>
         /// Constructeur de la classe
         /// </summary>
-        /// <param name="nom">Nom de la division</param>
-        public Division(string nom)
+        /// <param name="nom"></param>
+        public Batterie(string nom)
         {
             this.nom = nom;
-            this.brigades = new List<Brigade>();
-            this.regiments = new List<Regiment>();
+            this.canons = new List<ICanon>();
+            this.trains = new List<ICanon>();
         }
 
         /// <summary>
-        /// Renvoie ou modifie le nom de la division
+        /// Renvoie ou modifie le nom de la batterie
         /// </summary>
         public string Nom
         {
@@ -43,52 +43,54 @@ namespace CalculateurLH.Model.Composants_Armees
         }
 
         /// <summary>
-        /// Renvoie ou modifie la liste des brigades contenues dans la division
+        /// Renvoie ou modifie la liste des canons de la batterie
         /// </summary>
-        public List<Brigade> Brigades
+        public List<ICanon> Canons
         {
             get
             {
-                return this.brigades;
+                return this.canons;
             }
 
             set
             {
-                this.brigades = value;
+                this.canons = value;
             }
         }
 
         /// <summary>
-        /// Renvoie ou modifie la liste des régiments contenus dans la division
+        /// Renvoie ou modifie la liste des trains de la batterie
         /// </summary>
-        public List<Regiment> Regiments
+        public List<ICanon> Trains
         {
             get
             {
-                return this.regiments;
+                return this.trains;
             }
 
             set
             {
-                this.regiments = value;
+                this.trains = value;
             }
         }
 
+
         /// <summary>
-        /// Renvoie ou modifie le cout de la division
+        /// Renvoie le cout de la batterie en le calculant avec le prix de ses composants
         /// </summary>
+        /// <returns>Le prix de la batterie</returns>
         public int Cout()
         {
             int total = 0;
 
-            foreach(Brigade brigade in brigades)
+            foreach (ICanon canon in this.canons)
             {
-                total += brigade.Cout();
+                total += canon.Cout;
             }
 
-            foreach(Regiment regiment in regiments)
+            foreach (ICanon canon in this.trains)
             {
-                total += regiment.Cout();
+                total += canon.Cout;
             }
 
             return total;

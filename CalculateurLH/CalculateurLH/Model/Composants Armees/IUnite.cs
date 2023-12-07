@@ -10,7 +10,7 @@ namespace CalculateurLH.Model
     /// <summary>
     /// Classe qui gère les différentes unités
     /// </summary>
-    public interface IBataillon
+    public interface IUnite
     {
         /// <summary>
         /// Renvoie ou modifie le type de l'unité
@@ -75,6 +75,6 @@ namespace CalculateurLH.Model
 
     public interface ICreateUnite
     {
-        public IBataillon CreateUnite();
+        public IUnite CreateUnite();
     }
 }
