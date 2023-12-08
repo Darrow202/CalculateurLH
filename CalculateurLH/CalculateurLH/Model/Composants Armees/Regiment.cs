@@ -10,6 +10,7 @@ namespace CalculateurLH.Model.Composants_Armees
     {
         private string nom;
         private List<IUnite> bataillons;
+        private List<Batterie> batteries;
 
         /// <summary>
         /// Constructeur de la classe
@@ -19,6 +20,7 @@ namespace CalculateurLH.Model.Composants_Armees
         {
             this.nom = nom;
             this.bataillons = new List<IUnite>();
+            this.batteries = new List<Batterie>();
         }
 
         /// <summary>
@@ -54,6 +56,22 @@ namespace CalculateurLH.Model.Composants_Armees
         }
 
         /// <summary>
+        /// Renvoie ou modifie l'artillerie régimentaire
+        /// </summary>
+        public List<Batterie> Batteries
+        {
+            get
+            {
+                return this.batteries;
+            }
+
+            set
+            {
+                this.batteries = value;
+            }
+        }
+
+        /// <summary>
         /// Renvoie ou modifie le cout du régiment
         /// </summary>
         public int Cout()
@@ -63,6 +81,11 @@ namespace CalculateurLH.Model.Composants_Armees
             foreach(IUnite bataillon in this.bataillons) 
             {
                 total += bataillon.Cout;
+            }
+
+            foreach (Batterie batterie in batteries)
+            {
+                total += batterie.Cout();
             }
 
             return total;

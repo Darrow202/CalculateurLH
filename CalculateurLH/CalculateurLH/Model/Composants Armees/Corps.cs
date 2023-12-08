@@ -11,13 +11,17 @@ namespace CalculateurLH.Model.Composants_Armees
     /// </summary>
     public class Corps
     {
+        #region --- Attributs ---
         private string nom;
         private List<Division> divisions;
         private List<Brigade> brigades;
         private List<Regiment> regiments;
+        private List<Batterie> batteries;
+        #endregion
 
+        #region --- Constructeur ---
         /// <summary>
-        /// COnstructeur de la classe
+        /// Constructeur de la classe
         /// </summary>
         /// <param name="nom">Nom du corps d'armée</param>
         public Corps(string nom) 
@@ -26,8 +30,11 @@ namespace CalculateurLH.Model.Composants_Armees
             this.divisions = new List<Division>();
             this.brigades = new List<Brigade>();
             this.regiments = new List<Regiment>();
+            this.batteries = new List<Batterie>();
         }
+        #endregion
 
+        #region --- Propriétés ---
         /// <summary>
         /// Modifie ou renvoie le nom du corps d'armée
         /// </summary>
@@ -93,6 +100,24 @@ namespace CalculateurLH.Model.Composants_Armees
         }
 
         /// <summary>
+        /// Renvoie ou modifie la liste des batteries d'artillerie contenues dans le corps
+        /// </summary>
+        public List<Batterie> Batteries
+        {
+            get
+            {
+                return this.batteries;
+            }
+
+            set
+            {
+                this.batteries = value;
+            }
+        }
+        #endregion
+
+        #region --- Méthodes ---
+        /// <summary>
         /// Renvoie ou modifie le cout du corps d'armée
         /// </summary>
         public int Cout()
@@ -114,7 +139,13 @@ namespace CalculateurLH.Model.Composants_Armees
                 total += regiment.Cout();
             }
 
+            foreach(Batterie batterie in this.batteries)
+            {
+                total += batterie.Cout();
+            }
+
             return total;
         }
+        #endregion
     }
 }

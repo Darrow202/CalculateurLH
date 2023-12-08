@@ -11,10 +11,14 @@ namespace CalculateurLH.Model.Composants_Armees
     /// </summary>
     public class Division
     {
+        #region --- Attributs ---
         private string nom;
         private List<Brigade> brigades;
         private List<Regiment> regiments;
+        private List<Batterie> batteries;
+        #endregion
 
+        #region --- Constructeur ---
         /// <summary>
         /// Constructeur de la classe
         /// </summary>
@@ -24,8 +28,11 @@ namespace CalculateurLH.Model.Composants_Armees
             this.nom = nom;
             this.brigades = new List<Brigade>();
             this.regiments = new List<Regiment>();
+            this.batteries = new List<Batterie>();
         }
+        #endregion
 
+        #region --- Propriétés ---
         /// <summary>
         /// Renvoie ou modifie le nom de la division
         /// </summary>
@@ -75,6 +82,24 @@ namespace CalculateurLH.Model.Composants_Armees
         }
 
         /// <summary>
+        /// Renvoie ou modifie la liste des batteries d'artilleries contenues dans la division
+        /// </summary>
+        public List<Batterie> Batteries
+        {
+            get
+            {
+                return this.batteries;
+            }
+
+            set
+            {
+                this.batteries = value;
+            }
+        }
+        #endregion
+
+        #region --- Méthodes ---
+        /// <summary>
         /// Renvoie ou modifie le cout de la division
         /// </summary>
         public int Cout()
@@ -91,7 +116,13 @@ namespace CalculateurLH.Model.Composants_Armees
                 total += regiment.Cout();
             }
 
+            foreach(Batterie batterie in batteries)
+            {
+                total += batterie.Cout();
+            }
+
             return total;
         }
+        #endregion
     }
 }

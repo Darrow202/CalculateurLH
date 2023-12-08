@@ -11,10 +11,13 @@ namespace CalculateurLH.Model.Composants_Armees
     /// </summary>
     public class Batterie
     {
+        #region --- Attributs ---
         private string nom;
         private List<ICanon> canons;
         private List<ICanon> trains;
+        #endregion
 
+        #region --- Constructeur ---
         /// <summary>
         /// Constructeur de la classe
         /// </summary>
@@ -25,7 +28,9 @@ namespace CalculateurLH.Model.Composants_Armees
             this.canons = new List<ICanon>();
             this.trains = new List<ICanon>();
         }
+        #endregion
 
+        #region --- Propriétés ---
         /// <summary>
         /// Renvoie ou modifie le nom de la batterie
         /// </summary>
@@ -73,8 +78,9 @@ namespace CalculateurLH.Model.Composants_Armees
                 this.trains = value;
             }
         }
+        #endregion
 
-
+        #region --- Méthodes ---
         /// <summary>
         /// Renvoie le cout de la batterie en le calculant avec le prix de ses composants
         /// </summary>
@@ -95,5 +101,6 @@ namespace CalculateurLH.Model.Composants_Armees
 
             return total;
         }
+        #endregion
     }
 }
