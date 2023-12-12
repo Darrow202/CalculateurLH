@@ -12,6 +12,7 @@ namespace CalculateurLH.Model
     /// </summary>
     public interface IUnite
     {
+        #region --- Attributs ---
         /// <summary>
         /// Renvoie ou modifie le type de l'unité
         /// </summary>
@@ -25,7 +26,7 @@ namespace CalculateurLH.Model
         /// <summary>
         /// Renvoie ou modifie le nombre de figurines par compagnies
         /// </summary>
-        public int[] NbFigurinesCompagnies { get; set; }
+        public int NbFigurinesCompagnies { get; set; }
 
         /// <summary>
         /// Renvoie ou modifie le nombre de compagnies dans l'unité
@@ -55,7 +56,7 @@ namespace CalculateurLH.Model
         /// <summary>
         /// Renvoie ou modifie le mouvement de l'unité
         /// </summary>
-        public int[] Mouvement { get; set; }
+        public string[] Mouvement { get; set; }
 
         /// <summary>
         /// Renvoie ou modifie la classe de l'unité
@@ -66,6 +67,7 @@ namespace CalculateurLH.Model
         /// Renvoie ou modifie la liste des règles de l'unité
         /// </summary>
         public List<IRegle> Regles { get; set; }
+        #endregion
 
         /// <summary>
         /// Renvoie ou modifie le cout de l'unité

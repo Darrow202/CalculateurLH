@@ -169,6 +169,60 @@ namespace CalculateurLH.Model.Composants_Armees
 
             return total;
         }
+
+        /// <summary>
+        /// Ajoute un corps dans la liste de l'armée
+        /// </summary>
+        /// <param name="corps">Corps que l'on veut ajouter</param>
+        public void AjouterCorps(Corps corps)
+        {
+            this.Corps.Add(corps);
+        }
+
+        /// <summary>
+        /// Ajoute une division dans la liste de l'armée
+        /// </summary>
+        /// <param name="division">Division que l'on veut ajouter</param>
+        public void AjouterDivision(Division division)
+        {
+            this.Divisions.Add(division);
+        }
+
+        /// <summary>
+        /// Ajoute une brigade dans la liste de l'armée, s'il y en a moins de 2
+        /// </summary>
+        /// <param name="brigade"></param>
+        public void AjouterBrigade(Brigade brigade)
+        {
+            if (this.brigades.Count < 2)
+            {
+                this.brigades.Add(brigade);
+            }
+        }
+
+        /// <summary>
+        /// Ajoute un régiment dans la liste de l'armée, s'il y en a moins de 2
+        /// </summary>
+        /// <param name="regiment">Regiment que l'on veut ajouter</param>
+        public void AjouterRegiment(Regiment regiment)
+        {
+            if (this.regiments.Count < 2 )
+            {
+                if (regiment.estAjoutable() == true)
+                {
+                    this.regiments.Add(regiment);
+                }                
+            }
+        }
+
+        /// <summary>
+        /// Ajoute une batterie d'artillerie à la liste de l'armée 
+        /// </summary>
+        /// <param name="batterie"></param>
+        public void AjouterBatteries(Batterie batterie)
+        {
+            this.batteries.Add(batterie);
+        }
         #endregion
     }
 }

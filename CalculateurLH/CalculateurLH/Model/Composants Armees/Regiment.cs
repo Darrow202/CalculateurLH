@@ -8,10 +8,14 @@ namespace CalculateurLH.Model.Composants_Armees
 {
     public class Regiment
     {
+        #region --- Attributs ---
         private string nom;
+        private string type;
         private List<IUnite> bataillons;
         private List<Batterie> batteries;
+        #endregion
 
+        #region --- Constructeur ---
         /// <summary>
         /// Constructeur de la classe
         /// </summary>
@@ -22,7 +26,9 @@ namespace CalculateurLH.Model.Composants_Armees
             this.bataillons = new List<IUnite>();
             this.batteries = new List<Batterie>();
         }
+        #endregion
 
+        #region --- Propriétés ---
         /// <summary>
         /// Renvoie ou modifie le nom du régiment
         /// </summary>
@@ -36,6 +42,22 @@ namespace CalculateurLH.Model.Composants_Armees
             set
             {
                 this.nom = value;
+            }
+        }
+
+        /// <summary>
+        /// Renvoie ou modifie le type du régiment
+        /// </summary>
+        public string Type
+        {
+            get
+            {
+                return this.type;
+            }
+
+            set
+            {
+                this.type = value;
             }
         }
 
@@ -70,9 +92,11 @@ namespace CalculateurLH.Model.Composants_Armees
                 this.batteries = value;
             }
         }
+        #endregion
 
+        #region --- Méthodes ---
         /// <summary>
-        /// Renvoie ou modifie le cout du régiment
+        /// Renvoie le cout du régiment
         /// </summary>
         public int Cout()
         {
@@ -90,5 +114,26 @@ namespace CalculateurLH.Model.Composants_Armees
 
             return total;
         }
+
+        /// <summary>
+        /// Ajoute une batterie d'artillerie à la liste du régiment
+        /// </summary>
+        /// <param name="batterie">Batterie à ajouter</param>
+        public void AjouterBatterie(Batterie batterie)
+        {
+            this.batteries.Add(batterie);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public bool estAjoutable()
+        {
+            bool res = false;
+
+            return res;
+        }
+        #endregion
     }
 }

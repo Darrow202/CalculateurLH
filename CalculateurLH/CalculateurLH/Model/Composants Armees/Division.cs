@@ -16,11 +16,12 @@ namespace CalculateurLH.Model.Composants_Armees
         private List<Brigade> brigades;
         private List<Regiment> regiments;
         private List<Batterie> batteries;
+        private static int nbDivisions = 0;
         #endregion
 
         #region --- Constructeur ---
         /// <summary>
-        /// Constructeur de la classe
+        /// Constructeur de la classe, il ajoute 1 au nombre de division
         /// </summary>
         /// <param name="nom">Nom de la division</param>
         public Division(string nom)
@@ -29,7 +30,20 @@ namespace CalculateurLH.Model.Composants_Armees
             this.brigades = new List<Brigade>();
             this.regiments = new List<Regiment>();
             this.batteries = new List<Batterie>();
+            nbDivisions += 1;
         }
+        #endregion
+
+        #region --- Destructeur ---
+
+        /// <summary>
+        /// Destructeur de la classe, il reduit de 1 le nombre de division
+        /// </summary>
+        ~Division()
+        {
+            nbDivisions -= 1;
+        }
+
         #endregion
 
         #region --- Propriétés ---
@@ -96,6 +110,17 @@ namespace CalculateurLH.Model.Composants_Armees
                 this.batteries = value;
             }
         }
+
+        /// <summary>
+        /// Renvoie le nombre total de divisions
+        /// </summary>
+        public int NbDivisions
+        {
+            get
+            {
+                return nbDivisions;
+            }
+        }
         #endregion
 
         #region --- Méthodes ---
@@ -122,6 +147,42 @@ namespace CalculateurLH.Model.Composants_Armees
             }
 
             return total;
+        }
+
+        /// <summary>
+        /// Ajoute une brigade à la liste de la division, s'il y en a moins de 3
+        /// </summary>
+        /// <param name="brigade">Brigade que l'on veut ajouter</param>
+        public void AjouterBrigade(Brigade brigade)
+        {
+            if (this.brigades.Count < 3)
+            {
+                this.brigades.Add(brigade);
+            }
+        }
+
+        /// <summary>
+        /// Ajoute un régiment à la liste de la division, s'il y en a moins de 2
+        /// </summary>
+        /// <param name="regiment">Regiment que l'on veut ajouter</param>
+        public void AjouterRegiment(Regiment regiment)
+        {
+            if (this.regiments.Count < 2)
+            {
+                if (regiment.estAjoutable() == true)
+                {
+                    this.regiments.Add(regiment);
+                }                
+            }
+        }
+
+        /// <summary>
+        /// Ajoute une batterie à la liste de la division
+        /// </summary>
+        /// <param name="batterie">Batterie que l'on veut ajouter</param>
+        public void AjouterBatterie(Batterie batterie)
+        {
+            this.batteries.Add(batterie);
         }
         #endregion
     }

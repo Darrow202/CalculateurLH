@@ -15,15 +15,33 @@ namespace CalculateurLH.Model.Composants_Armees
         private string nom;
         private List<Regiment> regiments;
         private List<Batterie> batteries;
+        private static int nbBrigades;
         #endregion
 
         #region --- Constructeur ---
+        /// <summary>
+        /// COnstructeur de la classe, ajoute 1 au nombre de brigades
+        /// </summary>
+        /// <param name="nom">Nom de la brigade</param>
         public Brigade(string nom)
         {
             this.nom = nom;
             this.regiments = new List<Regiment>();
             this.batteries = new List<Batterie>();
+            nbBrigades += 1;
         }
+        #endregion
+
+        #region --- Destructeur ---
+
+        /// <summary>
+        /// Destructeur de la classe, réduit de 1 le nombre de brigades
+        /// </summary>
+        ~Brigade()
+        {
+            nbBrigades -= 1;
+        }
+
         #endregion
 
         #region --- Propriétés ---
@@ -74,6 +92,17 @@ namespace CalculateurLH.Model.Composants_Armees
                 this.batteries = value;
             }
         }
+
+        /// <summary>
+        /// Renvoie le nombre total de brigades
+        /// </summary>
+        public int NbBrigades
+        {
+            get
+            {
+                return nbBrigades;
+            }
+        }
         #endregion
 
         #region --- Méthodes ---
@@ -95,6 +124,30 @@ namespace CalculateurLH.Model.Composants_Armees
             }
 
             return total;
+        }
+
+        /// <summary>
+        /// Ajoute un régiment à la liste de la brigade, s'il y en a moins de 3
+        /// </summary>
+        /// <param name="regiment">Regiement que l'on veut ajouter</param>
+        public void AjouterRegiment(Regiment regiment)
+        {
+            if (this.regiments.Count < 3)
+            {
+                if (regiment.estAjoutable() == true)
+                {
+                    this.regiments.Add(regiment);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Ajoute une batterie d'artillerie à la liste de la brigade
+        /// </summary>
+        /// <param name="batterie"></param>
+        public void AjouterBatterie(Batterie batterie)
+        {
+            this.batteries.Add(batterie);
         }
         #endregion
     }
